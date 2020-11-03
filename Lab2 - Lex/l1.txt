@@ -1,0 +1,17 @@
+VAR  
+K : INTEGER ; 
+D : INTEGER ;  
+S : INTEGER ; 
+X : INTEGER ;  
+START 
+S <- 0 ; 
+GET (K) ; 
+X <- K ; 
+WHILE K>0 DO  
+START 
+D <- X mod 10 ;  
+S <- S + D ; 
+X <- X div 10 ; 
+END 
+WRITE (S) ;  
+END 
