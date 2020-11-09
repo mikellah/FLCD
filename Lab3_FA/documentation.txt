@@ -1,0 +1,20 @@
+First of all the input is read line by line
+1st line: Q (set of states)
+2nd line: how many elements in F (Final state(s)) there are
+3rd line: alphabet 
+4th line and next lines are used for the transitions
+
+BNF or EBNF format :
+<digit> ::= "0"|...|"9"
+<non_zero_digit> = "1"|...|"9"
+<letter> ::= "a"|...|"z"|"A"|...|"Z"
+<seq_letters> ::= <letter>|<letter><seq_letters>
+<seq_digits> ::= <digit>|<digit><seq_digits>
+<list_of_seq> ::= <seq_letters>" "|<seq_digits>" "
+<list>= <letter>" "|<digit>" "|<seq_letters>" "|<seq_digits>" "|<mix>" "
+<number> ::= <non_zero_digit>|<non_zero_digit><seq_digits>
+<mix> ::= <seq_letters><seq_digits> | <seq_digits><seq_letters>
+(1st line) <Q> ::= <list>|<list><Q>
+(2nd line) <nr_of_F> ::= <non_zero_digit>|<number>
+(3rd line) <Σ> ::= <digit> | <digit>" "<Σ>
+(4th+ line) <δ> ::= <Q><Q><digit>
