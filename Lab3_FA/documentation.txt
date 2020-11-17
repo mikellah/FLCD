@@ -4,7 +4,7 @@ First of all the input is read line by line
 3rd line: alphabet 
 4th line and next lines are used for the transitions
 
-BNF or EBNF format :
+BNF format :
 <digit> ::= "0"|...|"9"
 <non_zero_digit> = "1"|...|"9"
 <letter> ::= "a"|...|"z"|"A"|...|"Z"
