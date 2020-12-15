@@ -1,0 +1,30 @@
+S = {program}
+N={ program; declarationList; compoundStatement; declaration;type;arrayDeclaration;types;statementList;statement;simpleStatement;structStatement;assignstmt;iostmt;expression;factor;term;operation;ifstmt;whilestmt;condition;relation;numberconst}
+Σ = { <,==,<>,> ,> =, <=,VAR, BOOLEAN, CHAR, INTEGER, OF, START, GET, IF, WHILE, DO, WRITE, THEN, ELSE, mod, div, +, -, *, (, ), [, ], : , ; , <-,.}
+P = {	program -> VAR declarationList ; compoundStatement .
+	declarationList -> declaration ;  | declaration ; declarationList
+          	declaration -> identifier  :  type
+	type      ->    BOOLEAN  |  CHAR  |  INTEGER  
+   	arrayDeclaration      ->   ARRAY [ numberconst  ] OF  type  
+   	types       ->    type  | arrayDeclaration  
+    	compoundStatement      ->   START  statementList   END  
+    	statementList      ->    statement   |  statement  ;  stmtlist  
+    	statement      ->    simpleStatement   |  structStatement  
+    	simpleStatement      ->    assignstmt   |  iostmt  
+    	assignstmt      ->    identifier  <- expression   ;
+    	expression      ->    expression   operation   term   |  term  
+     	operation      ->   + |   -  |  mod  |  div | *
+    	term      ->    term   operation   factor   |  factor  
+     	factor      ->   (  expression  ) |  identifier  
+     	iostmt      ->    GET (  identifier )  ;  |  WRITE (  identifier ) ;
+      	structStatement      ->    compoundStatement   |  ifstmt   |  whilestmt  
+     	ifstmt      ->   IF  condition   THEN  statement   |  IF  condition   THEN statement ELSE  statement  
+     	whilestmt     ->   WHILE  condition  DO  statement  
+     	condition      ->    expression   relation   expression  
+     	relation      ->    < |  == | <> | > | >= |  <=
+         }
+
+
+
+	
+ 

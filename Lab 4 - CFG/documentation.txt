@@ -1,0 +1,31 @@
+Lab 4 : 
+Starting from the BNF description of the minilanguage syntax; construct the context free grammar (cfg) for parsing.
+G = { N;Σ;P;S };  where 
+- The starting symbol :  S is in the first line
+- The set of non-terminal symbols : N is on the second line
+-The set of terminal symbols : Σ (Sigma) is on the third line
+- The set of transitions : P is on the fourth line 
+
+
+BNF (from lab 1): 
+ <program> ::= “VAR” <declarationlist>  ; <compoundStatement> .
+ <declarationList> ::= <declaration> ; | <declaration> ; <declarationList>
+ <declaration> ::= <identifier> : < type>
+  <type> ::= <BOOLEAN>| <CHAR>| <INTEGER>
+  <arrayDeclaration> ::= “ARRAY” "[" <numberconst> "]" "OF" <type>
+   <types>  ::= <type>|<arrayDeclaration>
+   <compoundStatement> ::= <START><statementList><END>
+   <statementList> ::= <statement> | <statement> ; <stmtlist>
+   <statement> ::= <simpleStatement> | <structStatement>
+   <simpleStatement> ::= <assignstmt> | <iostmt>
+   <assignstmt> ::= <identifier> "<-" <expression> ;
+    <expression> ::= <expression><operation><term> |< term>
+    <operation> ::= “+” | “-” | “mod” | “div” | “*”
+    <term> ::= <term><operation><factor> | <factor>
+    <factor> ::= "(" <expression> ")" | <identifier>
+    <iostmt> ::= "GET" "(" <identifier> ")" ; | "WRITE" "(" <identifier> ")" ;
+    < structStatement> ::= <compoundStatement> | <ifstmt> | <whilestmt>
+    <ifstmt> ::= "IF" <condition> "THEN" <statement> |"IF" <condition> "THEN"  <statement>  "ELSE" <statement>
+    <whilestmt>::= "WHILE" <condition> "DO"  <statement>
+    <condition> ::= <expression><relation><expression>
+    <relation> ::= "<" |  "==" | "<>"  | ">" | “<=” | “>=” 
